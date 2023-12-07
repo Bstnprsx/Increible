@@ -1,0 +1,26 @@
+.white-paper {
+  display: flex; /* Establece el contenedor .white-paper como un contenedor Flexbox */
+  flex-direction: row; /* Los hijos de .white-paper se disponen en fila (horizontalmente) */
+  justify-content: space-between; /* Distribuye el espacio sobrante antes, entre y después de los hijos */
+  background-color: white; /* Fondo blanco para el contenedor .white-paper */
+  margin: 50px auto; /* Margen superior e inferior de 50px y margen izquierdo y derecho automático para centrar */
+  padding: 200px; /* Espacio interno en todos los lados del contenedor .white-paper */
+  border-radius: 5px; /* Esquinas redondeadas del contenedor con un radio de 5px */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera alrededor del contenedor .white-paper */
+  width: 90%; /* El ancho del contenedor .white-paper es el 90% del ancho de su contenedor padre */
+  max-width: 1800px; /* El ancho máximo del contenedor .white-paper es de 1800px */
+  height: auto; /* La altura del contenedor .white-paper se ajusta al contenido */
+  box-sizing: border-box; /* El ancho y altura incluyen el contenido, el padding y el borde */
+}
+
+.white-paper > .chart-container {
+  flex: 0 0 60%; /* El contenedor .chart-container no crecerá ni se encogerá y su base es 70% del ancho total */
+  margin: 20px; /* Margen alrededor del contenedor .chart-container */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor .chart-container */
+}
+
+.white-paper > .table-container {
+  flex: 0 0 20%; /* El contenedor .table-container no crecerá ni se encogerá y su base es 30% del ancho total */
+  margin: 20px; /* Margen alrededor del contenedor .table-container */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor .table-container */
+}
