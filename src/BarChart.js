@@ -1,5 +1,3 @@
-// BarChart.js
-
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
@@ -10,61 +8,58 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend,
-  borderPlugin // Asegúrate de registrar el plugin aquí
+  Legend
 );
 
-const borderPlugin = {
-    id: 'borderPlugin',
-    beforeDraw: (chart) => {
-      const ctx = chart.ctx;
-      const chartArea = chart.chartArea;
-      ctx.save();
-      ctx.strokeStyle = 'black';
-      ctx.lineWidth = 5;
-      ctx.strokeRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
-      ctx.restore();
-    }
-  };
-  
 const BarChart = () => {
-    const data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label: 'My First Dataset',
-          data: [65, 59, 80, 81, 56, 55, 40],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(201, 203, 207, 0.2)'
-          ],
-          borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)',
-            'rgb(153, 102, 255)',
-            'rgb(201, 203, 207)'
-          ],
-          borderWidth: 1
-        }]
-      };
-      
+  const data = {
+    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [65, 49, 80, 81, 56, 55, 40, 65, 119, 80, 81, 56], // Asegúrate de tener datos para cada mes
+      backgroundColor: '#15a0fd', // Azul rey sólido
+      borderColor: '#15a0fd', // Azul rey sólido
+      borderWidth: 1
+    }]
+  };
 
   const options = {
     scales: {
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        grid: {
+          display: false, // Esto oculta las líneas de la cuadrícula en el eje y
+        }
+      },
+      x: {
+        grid: {
+          display: false, // Esto oculta las líneas de la cuadrícula en el eje x
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Custom Chart Title'
       }
     }
   };
+  
 
-  return <Bar data={data} options={options} />;
+  return (
+    <div style={{ border: '2px solid black', padding: '10px' }}> {/* Estilo agregado aquí */}
+      <Bar data={data} options={options} />
+    </div>
+  );
 };
 
 export default BarChart;
+
+
+
+
+
+

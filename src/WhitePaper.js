@@ -4,19 +4,12 @@ import React from 'react';
 import './WhitePaper.css';
 import BarChart from './BarChart';
 import BasicTable from './BasicTable'
+import Datos_Uno from './Datos_Uno';
 
-function WhitePaper({ children }) {
+function WhitePaper() {
   return (
     <div className="white-paper">
-      <div className="chart-container">
-        <BarChart />
-      </div>
-      <div>
-        {children}
-      </div>
-      <div>
-        <BasicTable/>
-      </div>
+    <Datos_Uno/>
       
     </div>
   );
